@@ -4,7 +4,7 @@
   This file defines the objects used to represent a spectrum object.
   */
 
-  protocol Spectrum{
+  protocol mzData{
 
   import idl "common.avdl";
 
