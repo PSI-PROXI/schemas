@@ -1,0 +1,38 @@
+@namespace("uk.ac.ebi.pride.proxi")
+
+/**  Common data structure needed for most of the data structure:
+  - Ontology Term define the way to represent different ontology terms and their values.
+  - ProxiException define a common structure to througt
+*/
+
+protocol Common{
+
+/**
+A general exception type.
+*/
+error ProxiException {
+  /** The error message */
+  string message;
+
+  /** The numerical error code */
+  int errorCode = -1;
+}
+
+/** An ontology record is a Cvterm usd in different context to
+ describe objects such as Scores, parameters, etc.
+
+record OntologyTerm{
+
+ /** Ontology Namespace for example: PSI-MS, PRIDE, UNIMOD*/
+
+ union {null, string} ontology  = null;
+
+ union {null, string} accession = null;
+
+ union {null, string} name      = null;
+
+ union {null, string} value     = null;
+
+}
+
+}
