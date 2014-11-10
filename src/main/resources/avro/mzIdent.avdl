@@ -1,0 +1,115 @@
+@namespace("uk.ac.ebi.pride.proxi")
+
+protocol mzIdent{
+
+import idl "common.avdl";
+
+
+  record DatabaseAccession{
+
+     /** Database name using CvTerm or using free text
+
+     union {null, OntologyTerm} database = null;
+
+     /** Database accession */
+     union {null, string} accession = null;
+
+  }
+
+  record SearchEngineScore{
+
+       /** Database name using CvTerm or using free text
+
+       union {null, OntologyTerm} searchEngine = null;
+
+       /** Database accession */
+       union {null, double} score = null;
+
+  }
+
+  record Modification{
+
+      /** Modification name can be encode in an Ontology term */
+
+      union {null, OntologyTerm} name = null;
+
+      /** Location in the protein sequence, for n-terminal positions should be use -1 and for
+      c-terminal position should be use length of the sequence */
+
+      union {null, int} location = null;
+  }
+
+  record Peptide{
+
+     string peptideID;
+  }
+
+  record Psm{
+
+     string psmID;
+
+  }
+
+  record Polymorphism{
+
+    /** Aminoacid in the original sequence */
+
+    string sequenceAA;
+
+    /** Aminoacid that replace the original sequence AA in the sequence */
+
+    string substitutionAA;
+
+    /** position in the protein sequence */
+    int location;
+
+    /** count the the number of observation for this substitution */
+    union{ null, int} count = null;
+
+   }
+
+  /** Represent protein information at identification level. */
+
+  record Protein{
+
+     /** Resource accession e.g: ENSP00000339186 is the ID of the protein in the resource,
+      the file o the dataset is MUST be unique
+      */
+
+     string proteinID;
+
+     /** Other accessions related with the proteins such as the uniprot accessions or ENSEMBL */
+     union {null, array<DatabaseAccession>} otherAccessions = null;
+
+     /** Best SearchEngine score is the value of the score selected by the user to highlight one specific protein
+      it can be a q-value, Mascot score, etc
+      */
+
+     union {null, SearchEngineScore}    bestSearchEngineScore  = null;
+
+     /** List of complementary search engines scores can be associated witth
+
+     union {null, array<SearchEngineScore>} searchEngineScores = null;
+
+     /** reliability is the measure  of the protein, a category value of the quality of the identification */
+
+     union {null, int} reliability                    = null;
+
+     /** List of PTMs identified for this protein */
+     union {null, array<Modification>}         mods   = null;
+
+     /** List of Polymorphisms identified in the protein sequence */
+     union {null, array<Polymorphism>} polimorphisms = null;
+
+     /** List of Peptides identified for this protein */
+     union {null, array<Peptide>}       peptides      = null;
+
+     /** List of peptide spectrum matches for one protein */
+     union {null, array<Psm>} psms                    = null;
+
+
+  }
+
+
+
+}
