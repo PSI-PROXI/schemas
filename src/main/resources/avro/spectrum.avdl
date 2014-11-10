@@ -1,0 +1,42 @@
+@namespace("uk.ac.ebi.pride.proxi")
+
+/**
+  This file defines the objects used to represent a spectrum object.
+  */
+
+  protocol Spectra{
+
+  record Spectrum{
+
+   /** Spectrum ID in the resource or dataset*/
+
+   union {null, string} spectrumID        = null;
+
+   /** Spectrum MS Level */
+
+   union { null,  int} msLevel            = null;
+
+   /** Spectrum precursor Mass */
+
+   union { null, double} precursorMass    = null;
+
+   /** Spectrum precursor charge */
+
+   union {null, int} precursorCharge      = null;
+
+   /** Spectrum fragmentation type */
+
+   union {null, string} fragmentationType = null;
+
+   /** Spectrum retention time Window */
+
+   union {null, string} retentionWindow   = null;
+
+   /** Pair of peaks **/
+
+   union {null, map<double>} peaks = null;
+
+  }
+
+  }
+
