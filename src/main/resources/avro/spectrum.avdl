@@ -8,6 +8,8 @@
 
   import idl "common.avdl";
 
+ /** Description of a Peak that can be defined as a pair of double values mass -> intensity*/
+
   record Peak{
      /** mass */
      double mass;
@@ -16,6 +18,9 @@
      double intensity;
 
     }
+
+  /** Spectrum can ne considered as a set of Peaks, but also has contains some extra data
+      like MS/MS level, precursor charge, precursor intensity and precursor mass*/
 
   record Spectrum{
 
@@ -35,6 +40,10 @@
 
    union {null, int} precursorCharge      = null;
 
+   /** Precursor Intensity **/
+
+   union {null, double} precursorIntensity = null;
+
    /** Spectrum fragmentation type */
 
    union {null, string} fragmentationType = null;
@@ -49,8 +58,6 @@
 
   }
 
-
-
   record Spectra{
 
    /** Group of spectrum */
@@ -59,10 +66,9 @@
 
    /** Details of preprocessing steps: e.g deisotope, deconvolute, */
 
-   array<OntologyTerm> additionals = {};
-
-
-  }
+   array<OntologyTerm> additional = {};
 
   }
+
+}
 

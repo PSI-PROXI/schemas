@@ -20,17 +20,23 @@ error ProxiException {
 
 /** An ontology record is a Cvterm usd in different context to
  describe objects such as Scores, parameters, etc.
+ For those Term that do not contains */
 
-record OntologyTerm{
+record OntologyTerm {
 
- /** Ontology Namespace for example: PSI-MS, PRIDE, UNIMOD*/
+ /** Ontology Namespace for example: PSI-MS, PRIDE, UNIMOD */
 
  union {null, string} ontology  = null;
 
+/** Ontology Term accession value */
+
  union {null, string} accession = null;
+
+/** Ontology Term name */
 
  union {null, string} name      = null;
 
+/* Ontology Term value. */
  union {null, string} value     = null;
 
 }
