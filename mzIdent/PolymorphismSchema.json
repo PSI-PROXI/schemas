@@ -1,0 +1,29 @@
+
+{
+    "type":"object",
+    "$schema": "http://https://github.com/psi-proxi/schemas/common/Polymorphism.json",
+    "id": "Polymorphism",
+    "required":false,
+    "properties":{
+        "sequenceAA":{
+            "type":"string",
+            "id":"OntologyTerm/sequenceAA",
+            "required":true
+        },
+        "substitutionAA":{
+            "type":"string",
+            "id":"OntologyTerm/substitutionAA",
+            "required":true
+        },
+        "location":{
+            "type":"int",
+            "id":"OntologyTerm/location",
+            "required":false
+        },
+        "count":{
+            "type":"int",
+            "id":"OntologyTerm/count",
+            "required":false
+        }
+    }
+}

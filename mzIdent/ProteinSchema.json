@@ -4,24 +4,53 @@
     "id": "Protein",
     "required":false,
     "properties":{
+
         "proteinID": {
             "type":"string",
             "id": "Protein/proteinID",
             "required":true
         },
+
+        "description":{
+            "type":"string",
+            "id":"Protein/description",
+            "required":false
+        },
+
         "otherAccessions":{
             "type":"array",
             "id":"Protein/otherAccessions",
             "required":false,
             "items":{
                 "type":{"http://https://github.com/psi-proxi/schemas/common/DataBaseAccessionSchema.json":"#DatabaseAccession"},
+                "id":"Protein/otherAccessions/accession",
                 "required":true
             }
         },
-        "searchEngineScore":{
+
+        "bestSearchEngineScore":{
             "type":{"http://https://github.com/psi-proxi/schemas/common/ScoreSchema.json":"#Score"},
+            "id":"Protein/searchEngineScore",
             "required":false
         },
+
+        "searchEngineScores":{
+            "type":"array",
+            "id":"Protein/searchEngineScores",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/common/ScoreSchema.json":"#ScoreAccession"},
+                "id":"Protein/searchEngineScores/score",
+                "required":true
+            }
+        },
+
+        "reliability":{
+            "type":"int",
+            "id":"reliability",
+            "required":true
+        },
+
 
         "additional":{
             "type":"array",
@@ -29,6 +58,40 @@
             "required":false,
             "items":{
                 "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+                "id":"Protein/additional/term",
+                "required":true
+            }
+        },
+
+        "modifications":{
+            "type":"array",
+            "id":"Protein/modifications",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/mzIdent/ModificationSchema.json":"#Mofication"},
+                "id":"Protein/searchEngineScores/modification",
+                "required":true
+            }
+        },
+
+        "polymorphisms":{
+            "type":"array",
+            "id":"Protein/polymorphisms",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/mzIdent/PolymorphismSchema.json":"#Polymorphism"},
+                "id":"Protein/polymorphisms/polymorphism",
+                "required":true
+            }
+        },
+
+        "peptides":{
+            "type":"array",
+            "id":"Protein/peptides",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/mzIdent/PeptideSchema.json":"#Peptide"},
+                "id":"Protein/peptides/peptide",
                 "required":true
             }
         }
@@ -37,33 +100,4 @@
 
 
 
-/** Best SearchEngine score is the value of the score selected by the user to highlight one specific protein
- it can be a q-value, Mascot score, etc
- */
 
-union {null, SearchEngineScore}    bestSearchEngineScore  = null;
-
-/** List of complementary search engines scores can be associated witth
-
- union {null, array<SearchEngineScore>} searchEngineScores = null;
-
- /** reliability is the measure  of the protein, a category value of the quality of the identification */
-
-union {null, int} reliability                    = null;
-
-/** List of PTMs identified for this protein */
-union {null, array<Modification>}         mods   = null;
-
-/** List of Polymorphisms identified in the protein sequence */
-union {null, array<Polymorphism>} polimorphisms = null;
-
-/** List of Peptides identified for this protein */
-union {null, array<Peptide>}       peptides      = null;
-
-/** List of peptide spectrum matches for one protein */
-union {null, array<Psm>} psms                    = null;
-
-/** Protein description */
-union{null, string} description;
-
-}

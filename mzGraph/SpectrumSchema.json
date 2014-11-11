@@ -68,6 +68,7 @@
             "required":false,
             "items":{
                 "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+                "id":"Spectrum/additional/term",
                 "required":true
             }
         }
