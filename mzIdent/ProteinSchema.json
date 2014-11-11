@@ -1,0 +1,69 @@
+{
+    "type":"object",
+    "$schema": "http://https://github.com/psi-proxi/schemas/mzIdent/ProteinSchema.json",
+    "id": "Protein",
+    "required":false,
+    "properties":{
+        "proteinID": {
+            "type":"string",
+            "id": "Protein/proteinID",
+            "required":true
+        },
+        "otherAccessions":{
+            "type":"array",
+            "id":"Protein/otherAccessions",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/common/DataBaseAccessionSchema.json":"#DatabaseAccession"},
+                "required":true
+            }
+        },
+        "searchEngineScore":{
+            "type":{"http://https://github.com/psi-proxi/schemas/common/ScoreSchema.json":"#Score"},
+            "required":false
+        },
+
+        "additional":{
+            "type":"array",
+            "id":"Protein/additional",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+                "required":true
+            }
+        }
+    }
+}
+
+
+
+/** Best SearchEngine score is the value of the score selected by the user to highlight one specific protein
+ it can be a q-value, Mascot score, etc
+ */
+
+union {null, SearchEngineScore}    bestSearchEngineScore  = null;
+
+/** List of complementary search engines scores can be associated witth
+
+ union {null, array<SearchEngineScore>} searchEngineScores = null;
+
+ /** reliability is the measure  of the protein, a category value of the quality of the identification */
+
+union {null, int} reliability                    = null;
+
+/** List of PTMs identified for this protein */
+union {null, array<Modification>}         mods   = null;
+
+/** List of Polymorphisms identified in the protein sequence */
+union {null, array<Polymorphism>} polimorphisms = null;
+
+/** List of Peptides identified for this protein */
+union {null, array<Peptide>}       peptides      = null;
+
+/** List of peptide spectrum matches for one protein */
+union {null, array<Psm>} psms                    = null;
+
+/** Protein description */
+union{null, string} description;
+
+}
