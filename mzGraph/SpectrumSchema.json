@@ -1,0 +1,65 @@
+{
+    "type":"object",
+    "$schema": "http://https://github.com/psi-proxi/schemas/mzGraph/SpectrumSchema.json",
+    "id": "SpectrumSchema.json",
+    "required":false,
+    "properties":{
+        "spectrumID": {
+            "type":"string",
+            "id": "SpectrumSchema.json/spectrumID",
+            "required":true
+        },
+        "precursorCharge":{
+            "type":"int",
+            "id":"SpectrumSchema.json/precursorCharge",
+            "required":false
+        },
+        "msLevel":{
+            "type":"int",
+            "id":"SpectrumSchema.json/msLevel",
+            "required":false
+        },
+        "precursorMass":{
+            "type":"double",
+            "id":"SpectrumSchema.json/precursorMass",
+            "required":false
+        },
+        "precursorIntensity":{
+            "type":"double",
+            "id":"SpectrumSchema.json/precursorIntensity",
+            "required":false
+        },
+        "fragmentationType":{
+            "type":"string",
+            "id":"SpectrumSchema.json/fragmentationType",
+            "required":false
+        },
+        "retentionWindow":{
+            "type":"string",
+            "id":"SpectrumSchema.json/retentionWindow",
+            "required":false
+        },
+        "peaks": {
+            "type":"array",
+            "id": "SpectrumSchema.json/peaks",
+            "required":false,
+            "items":{
+                "type":"object",
+                "id": "http://jsonschema.net/peaks/peak",
+                "required":false,
+                "properties":{
+                    "mass": {
+                        "type":"double",
+                        "id": "http://jsonschema.net/peaks/peak/mass",
+                        "required":true
+                    },
+                    "intensity":{
+                        "type":"double",
+                        "id":"http://jsonschema.net/peaks/peak/intensity",
+                        "required":true
+                    }
+                }
+            }
+        }
+    }
+}
