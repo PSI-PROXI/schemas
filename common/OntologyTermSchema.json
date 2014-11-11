@@ -1,0 +1,28 @@
+{
+    "type":"object",
+    "$schema": "http://https://github.com/psi-proxi/schemas/common/OntologySchema.json",
+    "id": "OntologyTerm",
+    "required":false,
+    "properties":{
+        "ontology":{
+          "type":"string",
+          "id":"OntologyTerm/ontology",
+          "required":false
+        },
+        "accession":{
+            "type":"string",
+            "id":"OntologyTerm/accession",
+            "required":false
+        },
+        "name":{
+            "type":"string",
+            "id":"OntologyTerm/name",
+            "required":false
+        },
+        "value":{
+            "type":"string",
+            "id":"OntologyTerm/value",
+            "required":false
+        }
+    }
+}
