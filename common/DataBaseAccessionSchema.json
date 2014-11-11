@@ -1,0 +1,16 @@
+{
+    "type":"object",
+    "$schema": "http://https://github.com/psi-proxi/schemas/common/DatabaseAccessionSchema.json",
+    "id": "DatabaseAccession",
+    "required":false,
+    "properties":{
+        "accession":{
+            "type":"string",
+            "id":"DatabaseAccession/accession",
+            "required":false
+        },
+        "database":{
+            "type":"string",
+        }
+    }
+}

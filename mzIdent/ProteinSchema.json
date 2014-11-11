@@ -11,6 +11,12 @@
             "required":true
         },
 
+        "sequence":{
+            "type":"string",
+            "id":"Protein/sequence",
+            "required":true
+        },
+
         "description":{
             "type":"string",
             "id":"Protein/description",
@@ -52,17 +58,6 @@
         },
 
 
-        "additional":{
-            "type":"array",
-            "id":"Protein/additional",
-            "required":false,
-            "items":{
-                "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
-                "id":"Protein/additional/term",
-                "required":true
-            }
-        },
-
         "modifications":{
             "type":"array",
             "id":"Protein/modifications",
@@ -92,6 +87,17 @@
             "items":{
                 "type":{"http://https://github.com/psi-proxi/schemas/mzIdent/PeptideSchema.json":"#Peptide"},
                 "id":"Protein/peptides/peptide",
+                "required":true
+            }
+        },
+
+        "features":{
+            "type":"array",
+            "id":"Protein/features",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+                "id":"Protein/features/term",
                 "required":true
             }
         }

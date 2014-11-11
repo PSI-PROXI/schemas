@@ -13,6 +13,7 @@
 
         "name":{
             "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+            "id":"Modification/name",
             "required":true
         },
 

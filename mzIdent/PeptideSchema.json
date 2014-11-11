@@ -1,0 +1,88 @@
+{
+    "type":"object",
+    "$schema": "http://https://github.com/psi-proxi/schemas/mzIdent/PeptideSchema.json",
+    "id": "Peptide",
+    "required":false,
+    "properties":{
+
+        "peptideID": {
+            "type":"string",
+            "id": "Peptide/peptideID",
+            "required":true
+        },
+
+        "description":{
+            "type":"string",
+            "id":"Peptide/description",
+            "required":false
+        },
+
+        "otherAccessions":{
+            "type":"array",
+            "id":"Peptide/otherAccessions",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/common/DataBaseAccessionSchema.json":"#DatabaseAccession"},
+                "id":"Peptide/otherAccessions/accession",
+                "required":true
+            }
+        },
+
+        "bestSearchEngineScore":{
+            "type":{"http://https://github.com/psi-proxi/schemas/common/ScoreSchema.json":"#Score"},
+            "id":"Peptide/searchEngineScore",
+            "required":false
+        },
+
+        "psmSearchEngineScores":{
+            "type":"array",
+            "id":"Protein/psmSearchEngineScores",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/mzIdent/PsmScoreSchema.json":"#PsmScore"},
+                "id":"Peptide/searchEngineScores/score",
+                "required":true
+            }
+        },
+
+        "reliability":{
+            "type":"int",
+            "id":"reliability",
+            "required":true
+        },
+
+
+        "additional":{
+            "type":"array",
+            "id":"Peptide/additional",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+                "id":"Peptide/additional/term",
+                "required":true
+            }
+        },
+
+        "modifications":{
+            "type":"array",
+            "id":"Peptide/modifications",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/mzIdent/ModificationSchema.json":"#Mofication"},
+                "id":"Peptide/searchEngineScores/modification",
+                "required":true
+            }
+        },
+
+        "polymorphisms":{
+            "type":"array",
+            "id":"Peptide/polymorphisms",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/mzIdent/PolymorphismSchema.json":"#Polymorphism"},
+                "id":"Peptide/polymorphisms/polymorphism",
+                "required":true
+            }
+        }
+    }
+}

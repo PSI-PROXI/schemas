@@ -1,0 +1,19 @@
+{
+    "type":"object",
+    "$schema": "http://https://github.com/psi-proxi/schemas/common/ScoreSchema.json",
+    "id": "Score",
+    "required":false,
+    "properties":{
+
+        "value":{
+            "type":"string",
+            "id":"Score/value",
+            "required":false
+        },
+
+        "name":{
+            "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+            "required":true
+        }
+    }
+}
