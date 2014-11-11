@@ -1,0 +1,25 @@
+{
+    "type":"object",
+    "$schema": "http://https://github.com/psi-proxi/schemas/mzIdent/ModificationSchema.json",
+    "id": "Modification",
+    "required":false,
+    "properties":{
+
+        "location":{
+            "type":"int",
+            "id":"OntologyTerm/location",
+            "required":false
+        },
+
+        "name":{
+            "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+            "required":true
+        },
+
+        "aminoacid":{
+            "type":"string",
+            "id":"Modification/aminoacid",
+            "required":false
+        }
+    }
+}

@@ -1,64 +1,74 @@
 {
     "type":"object",
     "$schema": "http://https://github.com/psi-proxi/schemas/mzGraph/SpectrumSchema.json",
-    "id": "SpectrumSchema.json",
+    "id": "Spectrum",
     "required":false,
     "properties":{
         "spectrumID": {
             "type":"string",
-            "id": "SpectrumSchema.json/spectrumID",
+            "id": "Spectrum/spectrumID",
             "required":true
         },
         "precursorCharge":{
             "type":"int",
-            "id":"SpectrumSchema.json/precursorCharge",
+            "id":"Spectrum/precursorCharge",
             "required":false
         },
         "msLevel":{
             "type":"int",
-            "id":"SpectrumSchema.json/msLevel",
+            "id":"Spectrum/msLevel",
             "required":false
         },
         "precursorMass":{
             "type":"double",
-            "id":"SpectrumSchema.json/precursorMass",
+            "id":"Spectrum/precursorMass",
             "required":false
         },
         "precursorIntensity":{
             "type":"double",
-            "id":"SpectrumSchema.json/precursorIntensity",
+            "id":"Spectrum/precursorIntensity",
             "required":false
         },
         "fragmentationType":{
             "type":"string",
-            "id":"SpectrumSchema.json/fragmentationType",
+            "id":"Spectrum/fragmentationType",
             "required":false
         },
         "retentionWindow":{
             "type":"string",
-            "id":"SpectrumSchema.json/retentionWindow",
+            "id":"Spectrum/retentionWindow",
             "required":false
         },
         "peaks": {
             "type":"array",
-            "id": "SpectrumSchema.json/peaks",
+            "id": "Spectrum/peaks",
             "required":false,
             "items":{
                 "type":"object",
-                "id": "http://jsonschema.net/peaks/peak",
+                "id": "Spectrum/peaks/peak",
                 "required":false,
                 "properties":{
                     "mass": {
                         "type":"double",
-                        "id": "http://jsonschema.net/peaks/peak/mass",
+                        "id": "Spectrum/peaks/peak/mass",
                         "required":true
                     },
                     "intensity":{
                         "type":"double",
-                        "id":"http://jsonschema.net/peaks/peak/intensity",
+                        "id":"Spectrum/peaks/peak/intensity",
                         "required":true
                     }
                 }
+            }
+        },
+
+        "additional":{
+            "type":"array",
+            "id":"Spectrum/additional",
+            "required":false,
+            "items":{
+                "type":{"http://https://github.com/psi-proxi/schemas/common/OntologySchema.json":"#OntologyTerm"},
+                "required":true
             }
         }
     }
